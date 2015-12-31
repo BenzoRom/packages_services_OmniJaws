@@ -40,7 +40,7 @@ import android.util.Log;
 
 public class WeatherService extends Service {
     private static final String TAG = "WeatherService";
-    private static final boolean DEBUG = true;
+    private static final boolean DEBUG = false;
     private static final String ACTION_UPDATE = "org.omnirom.omnijaws.ACTION_UPDATE";
     private static final String ACTION_ALARM = "org.omnirom.omnijaws.ACTION_ALARM";
     private static final String ACTION_ENABLE = "org.omnirom.omnijaws.ACTION_ENABLE";
@@ -56,9 +56,6 @@ public class WeatherService extends Service {
 
     static final String ACTION_CANCEL_LOCATION_UPDATE =
             "org.omnirom.omnijaws.CANCEL_LOCATION_UPDATE";
-
-    public static final String BROADCAST_INTENT= "org.omnirom.omnijaws.BROADCAST_INTENT";
-    public static final String STOP_INTENT= "org.omnirom.omnijaws.STOP_INTENT";
 
     private static final float LOCATION_ACCURACY_THRESHOLD_METERS = 50000;
     public static final long LOCATION_REQUEST_TIMEOUT = 5L * 60L * 1000L; // request for at most 5 minutes
@@ -172,8 +169,6 @@ public class WeatherService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Intent result = new Intent(STOP_INTENT);
-        sendBroadcast(result);
     }
 
     private boolean isNetworkAvailable() {
@@ -294,6 +289,14 @@ public class WeatherService extends Service {
                             }
                         }
                         i++;
+                    } else if (Config.getLocationId(WeatherService.this) != null){
+                        w = provider.getCustomWeather(Config.getLocationId(WeatherService.this), Config.isMetric(WeatherService.this));
+                    } else {
+                        Log.w(TAG, "no valid custom location");
+                    }
+                    if (w != null) {
+                        Config.setWeatherData(WeatherService.this, w);
+                        WeatherContentProvider.updateCachedWeatherInfo(WeatherService.this);
                     }
                 } finally {
                     // send broadcast that something has changed
@@ -301,6 +304,11 @@ public class WeatherService extends Service {
                     sendBroadcast(updateIntent);
                     mWakeLock.release();
                     mRunning = false;
+                    if (w == null) {
+                        // error
+                        Config.clearWeatherData(WeatherService.this);
+                        WeatherContentProvider.updateCachedWeatherInfo(WeatherService.this);
+                    }
                 }
             }
          });
