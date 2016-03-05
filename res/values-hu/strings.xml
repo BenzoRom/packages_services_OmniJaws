@@ -24,11 +24,14 @@
   <string name="custom_location_title">Egyéni hely</string>
   <string name="weather_custom_location_dialog_title">Hely megadása</string>
   <string name="weather_custom_location_title">Hely</string>
+  <string name="weather_custom_location_missing">Egyéni hely beállítása</string>
   <string name="weather_retrieve_location_dialog_title">Hely lekérése sikertelen!</string>
   <string name="weather_retrieve_location_dialog_message">Hálózati helymeghatározás letiltva.\n\nÁllítson be egyéni helyet, vagy engedélyezze a hálózati helymeghatározást</string>
   <string name="weather_retrieve_location_dialog_enable_button">Engedélyezés</string>
   <string name="settings_title">Beállítások</string>
   <string name="auto_update_title">Automatikus frissítések</string>
+  <string name="unit_metric">Metrikus (\u00b0C)</string>
+  <string name="unit_imperial">Angolszász (\u00b0F)</string>
   <string name="update">Frissítés</string>
   <string name="enable_title">Engedélyezés</string>
   <string name="update_interval_title">Frissítés gyakorisága</string>

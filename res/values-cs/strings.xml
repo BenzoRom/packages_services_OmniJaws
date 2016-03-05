@@ -24,11 +24,14 @@
   <string name="custom_location_title">Vlastní umístění</string>
   <string name="weather_custom_location_dialog_title">Zadejte umístění</string>
   <string name="weather_custom_location_title">Poloha</string>
+  <string name="weather_custom_location_missing">Nastavit vlastní polohu</string>
   <string name="weather_retrieve_location_dialog_title">Polohu nelze zjistit!</string>
   <string name="weather_retrieve_location_dialog_message">Zjištění polohy podle sítě je vypnuto.\n\nNastavte vlastní polohu nebo povolte zjištění polohy</string>
   <string name="weather_retrieve_location_dialog_enable_button">Zapnout</string>
   <string name="settings_title">Nastavení</string>
   <string name="auto_update_title">Automatická aktualizace</string>
+  <string name="unit_metric">Metrické (\u00b0C)</string>
+  <string name="unit_imperial">Imperiální (\u00b0F)</string>
   <string name="update">Aktualizovat</string>
   <string name="enable_title">Zapnout</string>
   <string name="update_interval_title">Interval aktualizace</string>

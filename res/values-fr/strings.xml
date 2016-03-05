@@ -24,11 +24,14 @@
   <string name="custom_location_title">Localisation personnalisé</string>
   <string name="weather_custom_location_dialog_title">Entrez l\'emplacement</string>
   <string name="weather_custom_location_title">Localisation</string>
+  <string name="weather_custom_location_missing">Définir une localisation personnalisée</string>
   <string name="weather_retrieve_location_dialog_title">Impossible de récupérer l\'emplacement !</string>
   <string name="weather_retrieve_location_dialog_message">La géolocalisation de réseau est désactivé.\n\nDéfinir une localisation personnalisé ou activez l\'emplacement réseau</string>
   <string name="weather_retrieve_location_dialog_enable_button">Activé</string>
   <string name="settings_title">Paramètres</string>
   <string name="auto_update_title">Mises à jour automatiques</string>
+  <string name="unit_metric">Métrique (\u00b0C)</string>
+  <string name="unit_imperial">Impérial - (\u00b0F)</string>
   <string name="update">Mise à jour</string>
   <string name="enable_title">Activé</string>
   <string name="update_interval_title">Intervalle de mise à jour</string>

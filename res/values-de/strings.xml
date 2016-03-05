@@ -24,11 +24,14 @@
   <string name="custom_location_title">Benutzerdefinierter Standort</string>
   <string name="weather_custom_location_dialog_title">Standort eingeben</string>
   <string name="weather_custom_location_title">Standort</string>
+  <string name="weather_custom_location_missing">Benutzerdefinierten Standort einstellen</string>
   <string name="weather_retrieve_location_dialog_title">Standort kann nicht bestimmt werden!</string>
   <string name="weather_retrieve_location_dialog_message">Netzgebundene Positionsermittlung ist deaktiviert.\n\nLegen Sie eine benutzerdefinierte Position fest oder aktivieren Sie die netzgebundene Positionsermittlung</string>
   <string name="weather_retrieve_location_dialog_enable_button">Einschalten</string>
   <string name="settings_title">Einstellungen</string>
   <string name="auto_update_title">Automatische Aktualisierungen</string>
+  <string name="unit_metric">Metrisch (\u00b0C)</string>
+  <string name="unit_imperial">Imperial (\u00b0F)</string>
   <string name="update">Aktualisieren</string>
   <string name="enable_title">Aktivieren</string>
   <string name="update_interval_title">Aktualisierungsintervall</string>
