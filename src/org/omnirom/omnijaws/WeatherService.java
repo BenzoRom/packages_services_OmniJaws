@@ -319,27 +319,17 @@ public class WeatherService extends Service {
                             }
                         }
                         i++;
-                    } else if (Config.getLocationId(WeatherService.this) != null){
-                        w = provider.getCustomWeather(Config.getLocationId(WeatherService.this), Config.isMetric(WeatherService.this));
-                    } else {
-                        Log.w(TAG, "no valid custom location");
                     }
                 } finally {
                     if (w == null) {
                         // error
                         Config.setUpdateError(WeatherService.this, true);
                     }
-                } finally {
                     // send broadcast that something has changed
                     Intent updateIntent = new Intent(ACTION_BROADCAST);
                     sendBroadcast(updateIntent);
                     mWakeLock.release();
                     mRunning = false;
-                    if (w == null) {
-                        // error
-                        Config.clearWeatherData(WeatherService.this);
-                        WeatherContentProvider.updateCachedWeatherInfo(WeatherService.this);
-                    }
                 }
             }
          });
