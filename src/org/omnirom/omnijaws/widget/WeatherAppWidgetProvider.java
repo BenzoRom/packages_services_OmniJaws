@@ -105,7 +105,8 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider {
         if (LOGGING) {
             Log.i(TAG, "onReceive: " + action);
         }
-        if (action.equals(WEATHER_UPDATE)) {
+        if (action.equals(WEATHER_UPDATE)
+                || Intent.ACTION_LOCALE_CHANGED.equals(action)) {
             updateAllWeather(context);
         }
         if (action.equals(REFRESH_BROADCAST)) {
@@ -359,11 +360,16 @@ public class WeatherAppWidgetProvider extends AppWidgetProvider {
     private static void initWidget(RemoteViews widget) {
         widget.setViewVisibility(R.id.progress_container, View.GONE);
         widget.setViewVisibility(R.id.condition_line, View.VISIBLE);
-        widget.setViewVisibility(R.id.timestamp_container, View.VISIBLE);
-        widget.setViewVisibility(R.id.current_weather_city, View.VISIBLE);
-        widget.setViewVisibility(R.id.current_weather_data, View.VISIBLE);
-        widget.setViewVisibility(R.id.current_weather_timestamp, View.VISIBLE);
-        widget.setViewVisibility(R.id.error_marker, View.INVISIBLE);
+        if (errorReason == EXTRA_ERROR_DISABLED) {
+            widget.setViewVisibility(R.id.current_weather_data, View.GONE);
+            widget.setTextViewText(R.id.no_weather_notice, context.getResources().getString(R.string.omnijaws_service_disabled));
+        } else {
+            widget.setViewVisibility(R.id.current_weather_data, View.VISIBLE);
+            widget.setTextViewText(R.id.no_weather_notice, " * ");
+        }
+        widget.setViewVisibility(R.id.no_weather_notice, View.VISIBLE);
+        widget.setImageViewBitmap(R.id.refresh, shadow(context.getResources(),
+                context.getResources().getDrawable(R.drawable.ic_menu_refresh)).getBitmap());
         widget.setViewVisibility(R.id.refresh, View.VISIBLE);
     }
 
