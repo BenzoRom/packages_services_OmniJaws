@@ -324,9 +324,9 @@ public class WeatherService extends Service {
                     } else {
                         Log.w(TAG, "no valid custom location");
                     }
-                    if (w != null) {
-                        Config.setWeatherData(WeatherService.this, w);
-                        WeatherContentProvider.updateCachedWeatherInfo(WeatherService.this);
+                } finally {
+                    if (w == null) {
+                        // error
                         Config.setUpdateError(WeatherService.this, true);
                     }
                 } finally {
