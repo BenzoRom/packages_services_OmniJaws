@@ -23,7 +23,7 @@ public class SettingsActivity extends SettingsActivityService  {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        mShowIconPack = true;
+        mShowIconPack = false;
         super.onCreate(savedInstanceState);
     }
 }
