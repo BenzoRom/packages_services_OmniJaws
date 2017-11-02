@@ -127,7 +127,9 @@ public class WeatherService extends Service {
 
     public static void stop(Context context) {
         Intent i = new Intent(context, WeatherService.class);
-        context.stopService(i);
+        i.setAction(ACTION_ENABLE);
+        i.putExtra(EXTRA_ENABLE, false);
+        context.startService(i);
     }
 
     private static PendingIntent alarmPending(Context context) {
